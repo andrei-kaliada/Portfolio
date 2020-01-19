@@ -20,6 +20,10 @@
     .menu-btn.close .btn-line:nth-child(3) {
       transform: rotate(-45deg) translate(7px, -6px); }
 
+@media screen and (max-width: 500px) {
+  main#home h1 {
+    margin-top: 10vh; } }
+
 * {
   box-sizing: border-box; }
 
@@ -91,7 +95,7 @@ main {
   position: fixed;
   top: 0;
   width: 100%;
-  opacity: 0.9;
+  opacity: 0.98;
   visibility: hidden; }
   .menu.show {
     visibility: visible; }
@@ -120,8 +124,8 @@ main {
     .menu-branding.show {
       transform: translate3d(0, 0, 0); }
     .menu-branding .portrait {
-      width: 250px;
-      height: 250px;
+      width: 300px;
+      height: 300px;
       background: url(/dist/img/portrait.jpg) center no-repeat;
       border-radius: 50%;
       border: 3px solid #eece1a; }
@@ -156,3 +160,30 @@ main {
 
 .nav-item:nth-child(4) {
   transition-delay: 0.4s; }
+
+@media screen and (min-width: 501px) and (max-width: 768px) {
+  main {
+    align-items: center;
+    text-align: center; }
+    main .lg-heading {
+      line-height: 1;
+      margin-bottom: 1rem; }
+  ul.menu-nav,
+  div.menu-branding {
+    float: none;
+    width: 100%;
+    min-height: 0; }
+    ul.menu-nav.show,
+    div.menu-branding.show {
+      transform: translate3d(0, 0, 0); }
+  .menu-nav {
+    height: 75vh;
+    transform: translate3d(-100%, 0, 0);
+    font-size: 24px; }
+  .menu-branding {
+    height: 25vh;
+    transform: translate3d(100%, 0, 0); }
+    .menu-branding .portrait {
+      background: url(/dist/img/portrait_small.jpg) center no-repeat;
+      width: 150px;
+      height: 150px; } }
