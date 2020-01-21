@@ -10,7 +10,7 @@
     height: 3px;
     margin: 0 0 5px 0;
     transition: all 0.5s ease-out;
-    background-color: #fff; }
+    background: #fff; }
   .menu-btn.close {
     transform: rotate(180deg); }
     .menu-btn.close .btn-line:nth-child(1) {
@@ -20,16 +20,12 @@
     .menu-btn.close .btn-line:nth-child(3) {
       transform: rotate(-45deg) translate(7px, -6px); }
 
-@media screen and (max-width: 500px) {
-  main#home h1 {
-    margin-top: 10vh; } }
-
 * {
   box-sizing: border-box; }
 
 body {
   background: #444;
-  color: white;
+  color: #fff;
   height: 100%;
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -161,6 +157,129 @@ main {
 .nav-item:nth-child(4) {
   transition-delay: 0.4s; }
 
+.about-info {
+  display: grid;
+  grid-gap: 30px;
+  grid-template-areas: 'bioimage bio bio' 'job1 job2 job3';
+  grid-template-columns: repeat(3, 1fr); }
+  .about-info .bio-image {
+    grid-area: bioimage;
+    margin: auto;
+    border-radius: 50%;
+    border: #eece1a 3px solid; }
+  .about-info .bio {
+    grid-area: bio;
+    font-size: 1.5rem; }
+  .about-info .job-1 {
+    grid-area: job1; }
+  .about-info .job-2 {
+    grid-area: job2; }
+  .about-info .job-3 {
+    grid-area: job3; }
+  .about-info .job {
+    background: #515151;
+    padding: 0.5rem;
+    border-bottom: #eece1a 5px solid; }
+
+#main-footer {
+  text-align: center;
+  padding: 1rem;
+  background: #2b2b2b;
+  color: #fff;
+  height: 60px; }
+
+.container .card, .container .percent .number {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.container {
+  display: flex;
+  justify-content: space-around; }
+  .container .card {
+    position: relative;
+    width: 250px;
+    height: 330px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    text-align: center;
+    overflow: hidden;
+    transition: .5s ease; }
+    .container .card:hover {
+      transform: translatey(-15px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5); }
+      .container .card:hover .number h2 {
+        color: #fff;
+        font-size: 50px; }
+        .container .card:hover .number h2 span {
+          color: #fff; }
+      .container .card:hover h3 {
+        color: #fff; }
+    .container .card:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: -50%;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.03);
+      pointer-events: none; }
+  .container .percent {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    box-shadow: inset 0 0 50px #000;
+    background-color: #222;
+    z-index: 1; }
+    .container .percent h3 {
+      color: #777;
+      margin-top: 16px;
+      font-size: 22px;
+      transition: .5s ease; }
+    .container .percent .number {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%; }
+      .container .percent .number h2 {
+        color: #777;
+        font-size: 44px;
+        transition: .5s ease; }
+        .container .percent .number h2 span {
+          color: #777;
+          padding-left: 3px;
+          font-size: 24px;
+          transition: .5s ease; }
+    .container .percent svg {
+      position: relative;
+      width: 150px;
+      height: 150px;
+      transform: rotate(-85deg); }
+      .container .percent svg circle {
+        width: 100%;
+        height: 100%;
+        fill: none;
+        stroke: #191919;
+        stroke-width: 10;
+        stroke-linecap: round;
+        transform: translate(5px, 5px); }
+        .container .percent svg circle:nth-child(2) {
+          stroke-dasharray: 440;
+          stroke-dashoffset: 440; }
+  .container .card:nth-child(1) svg circle:nth-child(2) {
+    stroke-dashoffset: calc(440 - (440 * 90) / 100);
+    stroke: #63e2ff; }
+  .container .card:nth-child(2) svg circle:nth-child(2) {
+    stroke-dashoffset: calc(440 - (440 * 80) / 100);
+    stroke: #d9e021; }
+  .container .card:nth-child(3) svg circle:nth-child(2) {
+    stroke-dashoffset: calc(440 - (440 * 60) / 100);
+    stroke: #ed1e79; }
+
 @media screen and (min-width: 501px) and (max-width: 768px) {
   main {
     align-items: center;
@@ -186,4 +305,11 @@ main {
     .menu-branding .portrait {
       background: url(/dist/img/portrait_small.jpg) center no-repeat;
       width: 150px;
-      height: 150px; } }
+      height: 150px; }
+  .about-info {
+    grid-template-areas: 'bioimage' 'bio' 'job1' 'job2' 'job3';
+    grid-template-columns: 1fr; } }
+
+@media screen and (max-width: 500px) {
+  main#home h1 {
+    margin-top: 10vh; } }
