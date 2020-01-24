@@ -230,10 +230,13 @@ main{
 }
 
 .container{
-    //position: relative;
-    //width: 960px;
-    display: flex;
-    justify-content: space-around;
+    margin-top: 30px;
+    display: grid;
+    grid-gap:30px;
+    grid-template-areas:
+     ' card1 card2  card 3 ';
+      grid-template-columns:repeat(3, 1fr);
+      
 
     .card{
         @extend %center;
@@ -246,6 +249,7 @@ main{
         text-align: center;
         overflow: hidden;
         transition: .5s ease;
+        place-self: center;
 
         &:hover{
             transform: translatey(-15px);
@@ -380,6 +384,50 @@ main{
     }
 
     
+}
+
+// Work/Projects
+
+.projects{
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    
+
+    img{
+        width: 100%;
+        border: 3px solid #fff;
+
+        &:hover{
+            opacity: 0.5;
+            border-color: $secondary-color;
+            @include easeOut;
+        }
+    }
+}
+
+//Button Styles
+.btn{
+    display: block;
+    padding: 0.5rem 1rem;
+    margin-bottom: 0.3rem;
+
+    &:hover{
+        background: $secondary-color;
+        color:set-text-color($primary-color);
+    }
+}
+
+.btn-dark{
+    @extend .btn;
+    background: darken($primary-color, 15);
+    color:#fff;
+}
+
+.btn-light{
+    @extend .btn;
+    background: lighten($secondary-color, 50);
+    color: #333;
 }
 
 
